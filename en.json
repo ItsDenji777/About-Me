@@ -1,6 +1,6 @@
 
 {
-    "wt" : "Kasra Seydi - Homepage",
+    "web-t" : "Kasra Seydi - Homepage",
     "nameb": "Kasra Seydi",
     "greet" : "Hello There!",
     "ABT" : "Im a newbie programmer,and im trying to fit into the Developers Universe! The journy is Just Smooth Sailing ^-^...i lied its bumpy like a desert.",
@@ -16,6 +16,6 @@
     "hca" : "Was the first thing i learned! and the least thing i used,but it comes in handy so much.",
     "GoA" : "Go",
     "GoT" : "Just learned it so i can write a few Projects,but now i live with knowing how to code in 'Go'.",
-    "JA-T" : "Java",
-    "JA-A" : "The Best one out of the 6 Languages i know,Not gonna lie i love it! but it took me a lot of affort to learn it."
+    "ja-t" : "Java",
+    "ja-a" : "The Best one out of the 6 Languages i know,Not gonna lie i love it! but it took me a lot of affort to learn it."
 }
