@@ -247,39 +247,46 @@
         </footer>
     </div>
 <script src="dist/lottie/TI.js"></script>
-<script src="dist\js\lang.js"></script>
+<script src="https://itsdenji777.github.io/lang.js"></script>
     <script>
-        // JavaScript Code
-        let currentLanguage = 'en'; // Default language
-    
-    
-        // Function to load the language JSON and update the page
-        function changeLanguage(language) {
-          fetch(`${language}.json`) // Fetch the JSON file for the selected language
-            .then(response => {
-              if (!response.ok) {
+// Function to detect or retrieve the dynamic language
+function getDynamicLanguage() {
+    // Retrieve from localStorage if available
+    let storedLang = localStorage.getItem('buttonLang');
+    if (storedLang) return storedLang;
+
+    // Fallback to browser detection if no stored language
+    let browserLang = navigator.language || navigator.userLanguage;
+    return browserLang.substring(0, 2); // Return 'fa', 'en', etc.
+}
+
+// Function to load the language JSON and update the page
+function changeLanguage(language) {
+    fetch(`${language}.json`) // Fetch the JSON file for the selected language
+        .then(response => {
+            if (!response.ok) {
                 throw new Error(`Could not load ${language}.json`);
-              }
-              return response.json();
-            })
-            .then(data => {
-              // Update all elements with data-key attributes
-              document.querySelectorAll("[data-key]").forEach(element => {
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Update all elements with data-key attributes
+            document.querySelectorAll("[data-key]").forEach(element => {
                 const key = element.getAttribute("data-key");
                 if (data[key]) {
-                  element.innerText = data[key];
+                    element.innerText = data[key];
                 }
-              });
-              currentLanguage = language; // Set the current language
-            })
-            .catch(error => console.error("Error loading language file:", error));
-        }
-    
-    
-        // Load the default language on page load
-        document.addEventListener("DOMContentLoaded", function () {
-          changeLanguage(currentLanguage);
-        });
+            });
+            langs = language; // Dynamically update the current language
+        })
+        .catch(error => console.error("Error loading language file:", error));
+}
+
+// Load the default language on page load
+document.addEventListener("DOMContentLoaded", function () {
+    var langs = getDynamicLanguage(); // Dynamically determine the starting language
+    changeLanguage(langs); // Load the dynamic language
+});
       </script>
     <script src="dist/js/main.min.js"></script>
 </body>
