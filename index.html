@@ -30,24 +30,28 @@
                         <h1 class="m-0">
 							<a href="https://itsdenji777.github.io">
 								<img class="header-logo-image" style="position: absolute;" height="90" width="90" src="dist/images/Logo.svg" alt="Logo">
-                                <a href="#LangChanged">
-                                    <div 
-                                    id="langbtn" 
-                                    class="LangChanged"
-                                    style="width: 53px; 
-                                    height: 53px;
-                                    margin-left: 230px;
-                                    left: 5; 
-                                    position: absolute;
-                                    margin-top: 10px"></div>
-                                </a>
                             </a>
+                            
                         </h1>
                     </div>
-                    <h4 style="margin-top: 70px; margin-left: 35px; color: aliceblue;font-family: arial;
+                    <h4 style="margin-top: 90px; margin-left: 35px; color: aliceblue;font-family: arial;
                     position: absolute;
                     top: 5;
                     left: 51px;" data-key="nameb">Kasra Seydi</h4>
+                   <div class="dropdown-container" style="margin-left: 29px;left: 180px;margin-top: 69px; position: absolute;">
+                
+                    <select id="languageSelector" class="dropdown">
+                        <option value="fa">🇮🇷 Persian</option>
+                        <option value="en">🇺🇸 English</option>
+                        <option value="ru">🇷🇺 Russian</option>
+                        <option value="fr">🇫🇷 French</option>
+                        <option value="ar">🇸🇦 Arabic</option>
+                        <option value="pl">🇵🇱 Polish</option>
+                        <option value="ja">🇯🇵 Japanese</option>
+                        <option value="zh">🇨🇳 Chinese</option>
+                    </select>
+                </div>
+            
                 </div>
             </div>
         </header>
@@ -246,48 +250,7 @@
             </div>
         </footer>
     </div>
-<script src="dist/lottie/TI.js"></script>
 <script src="https://itsdenji777.github.io/lang.js"></script>
-    <script>
-// Function to detect or retrieve the dynamic language
-function getDynamicLanguage() {
-    // Retrieve from localStorage if available
-    let storedLang = localStorage.getItem('buttonLang');
-    if (storedLang) return storedLang;
-
-    // Fallback to browser detection if no stored language
-    let browserLang = navigator.language || navigator.userLanguage;
-    return browserLang.substring(0, 2); // Return 'fa', 'en', etc.
-}
-
-// Function to load the language JSON and update the page
-function changeLanguage(language) {
-    fetch(`${language}.json`) // Fetch the JSON file for the selected language
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Could not load ${language}.json`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Update all elements with data-key attributes
-            document.querySelectorAll("[data-key]").forEach(element => {
-                const key = element.getAttribute("data-key");
-                if (data[key]) {
-                    element.innerText = data[key];
-                }
-            });
-            langs = language; // Dynamically update the current language
-        })
-        .catch(error => console.error("Error loading language file:", error));
-}
-
-// Load the default language on page load
-document.addEventListener("DOMContentLoaded", function () {
-    var langs = getDynamicLanguage(); // Dynamically determine the starting language
-    changeLanguage(langs); // Load the dynamic language
-});
-      </script>
     <script src="dist/js/main.min.js"></script>
 </body>
 </html>
