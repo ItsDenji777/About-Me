@@ -4,7 +4,7 @@ A link tree to all of the different urls of my website.
 # [About Me](https://itsdenji777.github.io/About-Me)
 You get to know me a little bit better!
 
-# [My Projects](https://itsdenji777.github.io/Projects)
+# [My Projects](https://itsdenji777.github.io/My-Projects)
 Where you can download/buy my projects.
 
 # [Contact Me](https://itsdenji777.github.io/Contact-Me)
